@@ -169,6 +169,7 @@ vim.opt.shiftwidth = 2
 
 -- Yank to clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
 
 --  Go to normal mode
 --  NOTE: the l just makes the cursor in the same character it was
@@ -661,6 +662,16 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        -- Go
+        'delve',
+        'gopls',
+        'gofumpt',
+        'golines',
+        'goimports-reviser',
+        -- Java
+        'jdtls',
+        'java-debug-adapter',
+        'java-test',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -919,12 +930,6 @@ require('lazy').setup({
         'query',
         'vim',
         'vimdoc',
-        -- Go
-        'delve',
-        'gopls',
-        'gofumpt',
-        'golines',
-        'goimports-reviser',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
