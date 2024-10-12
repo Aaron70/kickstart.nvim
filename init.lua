@@ -164,6 +164,7 @@ vim.opt.shiftwidth = 2
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+require('custom.keymaps').apply()
 
 -- Personal Keymaps
 
@@ -621,8 +622,17 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        gopls = {},
-        -- pyright = {},
+        gopls = {
+          settings = {
+            completeUnimported = true,
+            usePlaceholders = false,
+            analyses = {
+              unusedparams = true,
+              shadow = true,
+            },
+          },
+        },
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -672,6 +682,7 @@ require('lazy').setup({
         'jdtls',
         'java-debug-adapter',
         'java-test',
+        'cucumber_language_server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -800,13 +811,13 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          -- ['<C-y>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          --['<CR>'] = cmp.mapping.confirm { select = true },
-          --['<Tab>'] = cmp.mapping.select_next_item(),
-          --['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
