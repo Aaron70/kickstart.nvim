@@ -2,6 +2,12 @@
 -- See `:help vim.opt`
 -- For more options, you can see `:help option-list`
 
+-- Map Leader
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+vim.g.have_nerd_font = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 

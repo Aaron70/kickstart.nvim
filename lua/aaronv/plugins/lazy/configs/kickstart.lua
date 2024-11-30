@@ -1,10 +1,10 @@
 return {
-  require 'kickstart.plugins.neo-tree',
-  require 'kickstart.plugins.debug',
-  require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
-  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require(GetPlugin 'kickstart.plugins.neo-tree'),
+  require(GetPlugin 'kickstart.plugins.debug'),
+  require(GetPlugin 'kickstart.plugins.lint'),
+  require(GetPlugin 'kickstart.plugins.autopairs'),
+  require(GetPlugin 'kickstart.plugins.neo-tree'),
+  require(GetPlugin 'kickstart.plugins.gitsigns'), -- adds gitsigns recommend keymap)s
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
